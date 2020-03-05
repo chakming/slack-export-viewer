@@ -107,10 +107,7 @@ class Message(object):
     @property
     def icon(self):
         try:
-            icons = self.message.get("icons")
-            if "image_48" in icons:
-                return icons["image_48"]
-            return ""
+            return self._message["icons"]["image_48"]
         except KeyError:
             return ""
         

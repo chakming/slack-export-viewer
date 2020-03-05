@@ -100,13 +100,20 @@ class Message(object):
     @property
     def img(self):
         try:
-            icons = self.message.get("icons")
-            if "image_48" in icons:
-                return icons["image_48"]
             return self.user.image_url(self._DEFAULT_USER_ICON_SIZE)
         except KeyError:
             return ""
 
+    @property
+    def icon(self):
+        try:
+            icons = self.message.get("icons")
+            if "image_48" in icons:
+                return icons["image_48"]
+            return ""
+        except KeyError:
+            return ""
+        
     @property
     def id(self):
         return self.time

@@ -15,7 +15,7 @@
     <div class="message-container{%if message.subtype %} {{message.subtype}}{%endif%}">
         <div id="{{ message.id }}">
             {% if not no_external_references %}
-                {% if message.img %}<img src="{{ message.img }}" class="user_icon" />{%else%}<div class="user_icon"><img src="{{ message }}" class="user_icon" /></div>{%endif%}
+                {% if message.img %}<img src="{{ message.img }}" class="user_icon" />{%else%}<div class="user_icon"><img src="{{ message|pprint }}" class="user_icon" /></div>{%endif%}
             {% endif %}
             <div class="message">
                 <div class="username">{{ message.username }}
